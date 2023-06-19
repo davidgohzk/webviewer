@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import * as React from "react";
+import { Text, View, StyleSheet, ActivityIndicator } from "react-native";
+import { WebView } from "react-native-webview";
+function LoadingIndicatorView() {
+  return <ActivityIndicator color="#009b88" size="large" />;
+}
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <WebView
+      originWhitelist={["*"]}
+      source={{
+        uri: "https://www.figma.com/proto/R9xflpZTfo7iXsAFTDp4no/SUCCess?node-id=4-320&starting-point-node-id=4%3A320&hotspot-hints=0&hide-ui=1",
+      }}
+      renderLoading={this.LoadingIndicatorView}
+      startInLoadingState={true}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
